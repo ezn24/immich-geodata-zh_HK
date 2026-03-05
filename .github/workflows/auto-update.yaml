@@ -44,7 +44,7 @@ jobs:
           bodyFile: .github/auto_release_note.md
           draft: false
           generateReleaseNotes: false
-          commit: zh_TW
+          commit: zh_HK
           tag: auto-release
           allowUpdates: true
           makeLatest: true
