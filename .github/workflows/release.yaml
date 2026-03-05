@@ -1,0 +1,49 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Release
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  release:
+    environment: Action Env
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: |
+          pip3 install -r requirements.txt
+      - name: Set current date as env variable
+        run: echo "TODAY=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+      - name: Build
+        env: # Or as an environment variable
+          AMAP_API_KEY: ${{ secrets.AMAP_API_KEY }}
+        run: bash release.sh
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          name: Release ${{ env.TODAY }}
+          artifacts: "output/*"
+          draft: false
+          generateReleaseNotes: false
+          commit: zh_TW
+          tag: release-${{ env.TODAY }}
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Auto update reverse geocoding data on ${{ env.TODAY }}
+          file_pattern: geodata/data/*
