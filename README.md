@@ -17,11 +17,11 @@
 # 如何使用
 
 ### 1. 下载数据
-在 [Release 页面](https://github.com/ezn24/immich-geodata-zh_TW/releases/latest) 下载 geodata.zip 和 i18n-iso-countries.zip 两个文件并解压
+在 [Release 页面](https://github.com/ezn24/immich-geodata-zh_HK/releases/latest) 下载 geodata.zip 和 i18n-iso-countries.zip 两个文件并解压
 
 数据发布分为以下两类：  
-- 🔄 [**自动更新版**](https://github.com/ezn24/immich-geodata-zh_TW/releases/tag/auto-release)：更新更频繁，推荐使用。但由于数据源可能发生变化，偶尔会导致生成的文件不可用。如遇问题可切换至手动发布版并提交 issue。  
-- 🛠️ [**手动发布版**](https://github.com/ezn24/immich-geodata-zh_TW/releases)：相对稳定，适合作为备用选项。
+- 🔄 [**自动更新版**](https://github.com/ezn24/immich-geodata-zh_HK/releases/tag/auto-release)：更新更频繁，推荐使用。但由于数据源可能发生变化，偶尔会导致生成的文件不可用。如遇问题可切换至手动发布版并提交 issue。  
+- 🛠️ [**手动发布版**](https://github.com/ezn24/immich-geodata-zh_HK/releases)：相对稳定，适合作为备用选项。
 
 文件名以 `_full` 结尾的版本数据量更大，在边界位置识别上表现更好，但可能会降低识别速度。  
 
@@ -61,7 +61,7 @@ volumes:
   - ./i18n-iso-countries/langs:/usr/src/app/node_modules/i18n-iso-countries/langs
 ```
 
-如果使用的是 `imagegenius/immich` 镜像，修改路径如下（感谢 huazhaozhe [#18](https://github.com/ezn24/immich-geodata-zh_TW/discussions/18)）
+如果使用的是 `imagegenius/immich` 镜像，修改路径如下（感谢 huazhaozhe [#18](https://github.com/ezn24/immich-geodata-zh_HK/discussions/18)）
 
 ```
 volumes:
@@ -93,10 +93,10 @@ volumes:
 # cd geodata  在 geodata 目录下进行操作
 
 # 下载脚本
-curl -o update.sh https://raw.githubusercontent.com/ezn24/immich-geodata-zh_TW/refs/heads/zh_TW/geodata/update.sh
+curl -o update.sh https://raw.githubusercontent.com/ezn24/immich-geodata-zh_HK/refs/heads/zh_HK/geodata/update.sh
 
 # 下載脚本（群暉適用）
-curl -o update.sh https://raw.githubusercontent.com/ezn24/immich-geodata-zh_TW/refs/heads/zh_TW/geodata/update_for_Synology.sh
+curl -o update.sh https://raw.githubusercontent.com/ezn24/immich-geodata-zh_HK/refs/heads/zh_HK/geodata/update_for_Synology.sh
 
 # 运行更新脚本，参数为你需要的版本，例如 geodata_admin_2
 bash update.sh geodata_admin_2
@@ -110,7 +110,7 @@ bash update.sh geodata_admin_2
 
 # 如何生成数据
 
-关于如何运作的，或者是想要自定义数据的，可以到 [此处](https://github.com/ezn24/immich-geodata-zh_TW/tree/zh_TW/geodata) 查看。
+关于如何运作的，或者是想要自定义数据的，可以到 [此处](https://github.com/ezn24/immich-geodata-zh_HK/tree/zh_HK/geodata) 查看。
 
 # License
 
